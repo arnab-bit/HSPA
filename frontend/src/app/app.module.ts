@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { Routes, RouterModule} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -12,6 +13,8 @@ import { HousingService } from './services/housing.service';
 import { AddPropertyComponent } from './property/add-property/add-property.component';
 import { PropertyDetailComponent } from './property/property-detail/property-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
 
 
 
@@ -20,6 +23,8 @@ const appRoutes: Routes = [
   {path: 'rent-property', component: PropertyListComponent},
   {path: 'add-property', component: AddPropertyComponent},
   {path: 'property-detail/:id', component: PropertyDetailComponent},
+  {path: 'user/register', component: UserRegistrationComponent},
+  {path: 'user/login', component: UserLoginComponent},
   {path: '**', component: PageNotFoundComponent},
 
 ]
@@ -33,11 +38,14 @@ const appRoutes: Routes = [
     NavBarComponent,
     AddPropertyComponent,
     PropertyDetailComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    UserRegistrationComponent,
+    UserLoginComponent
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
