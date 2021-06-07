@@ -9,8 +9,7 @@
         <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
-            <span *ngIf="!registrationForm.get('userName').valid &&
-            registrationForm.get('userName').touched" class="error-block">
+            <span *ngIf="!userNameValidator.valid && userNameValidator.touched" class="error-block">
             Name field must be required.
             </span>
         </div>
@@ -18,21 +17,53 @@
         <div class="form-group col-12">
           <label for="email" class="form-label">Email</label>
           <input type="text" class="form-control" formControlName="email">
+          <span *ngIf="!emailValidator.valid && emailValidator.touched" class="error-block">
+            <span *ngIf="emailValidator.hasError('required')">
+              Email field must be required.
+            </span>
+            <span *ngIf="emailValidator.hasError('email')">
+              Email should be a valid.
+            </span>
+          </span>
         </div>
 
         <div class="form-group col-12">
           <label for="passwrod" class="form-label">Password</label>
           <input type="text" class="form-control" formControlName="password">
+          <span *ngIf="!passwordValidator.valid && passwordValidator.touched" class="error-block">
+            <span *ngIf="passwordValidator.errors['required']">
+              Password must be required.
+            </span>
+            <span *ngIf="passwordValidator.errors.minlength">
+              Password should be at least 5 character.
+            </span>
+          </span>
         </div>
 
         <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
           <input type="text" class="form-control" formControlName="confirmPassword">
+          <span *ngIf="!confirmPasswordValidator.valid && confirmPasswordValidator.touched" class="error-block">
+            <span *ngIf="confirmPasswordValidator.hasError('required')">
+              This field must be required.
+            </span>
+          </span>
+          <span *ngIf="confirmPasswordValidator.valid && registrationForm.hasError('notmatched')" class="error-block">
+            This field should matched with the password field.
+          </span>
         </div>
 
         <div class="form-group col-12">
           <label for="mobile" class="form-label">Mobile</label>
           <input type="text" class="form-control" formControlName="mobile">
+          <span *ngIf="!mobileValidator.valid && mobileValidator.touched" class="error-block">
+            <span *ngIf="mobileValidator.errors['required']">
+              Mobile number must be required.
+            </span>
+            <span *ngIf="mobileValidator.errors.maxlength">
+              Mobile number should be maximum 10 digit.
+            </span>
+          </span>
         </div>
 
         <div class="btn-toolbar mt-2">
@@ -40,8 +71,8 @@
           <button type="reset" class="btn btn-secondary ml-2">Cancel</button>
         </div>
       </form>
-      Form Values: {{registrationForm.value | json}} <br/>
-      Form status: {{registrationForm.valid}}
+      <!-- Form Values: {{registrationForm.value | json}} <br/>
+      Form status: {{registrationForm.valid}} -->
     </div>
   </div>
   </div>
