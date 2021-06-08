@@ -1,3 +1,31 @@
-<p>
-  user-login works!
-</p>
+<div class="row">
+  <div class="col-6 m-auto">
+    <div class="card m-auto">
+      <div class="card-header">
+        Login
+      </div>
+      <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+          <div class="form-group col-12">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" formControlName="username">
+            <span *ngIf="!usernameValidator.valid && usernameValidator.touched" class="error-block">
+              Username is required to login
+            </span>
+          </div>
+          <div class="form-group col-12">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password">
+            <span *ngIf="!passwordValidator.valid && passwordValidator.touched" class="error-block">
+              Password is required to login
+            </span>
+          </div>
+          <div class="btn-toolbar mt-2">
+            <button type="submit" class="btn btn-primary mx-2">Submit</button>
+            <button type="button" class="btn btn-secondary ml-2">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

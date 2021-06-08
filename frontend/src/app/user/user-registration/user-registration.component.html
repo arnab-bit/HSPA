@@ -9,7 +9,7 @@
         <div class="form-group col-12">
             <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" formControlName="userName">
-            <span *ngIf="!userNameValidator.valid && userNameValidator.touched" class="error-block">
+            <span *ngIf="!userNameValidator.valid && (userNameValidator.touched || saveButton)" class="error-block">
             Name field must be required.
             </span>
         </div>
@@ -17,7 +17,7 @@
         <div class="form-group col-12">
           <label for="email" class="form-label">Email</label>
           <input type="text" class="form-control" formControlName="email">
-          <span *ngIf="!emailValidator.valid && emailValidator.touched" class="error-block">
+          <span *ngIf="!emailValidator.valid && (emailValidator.touched || saveButton)" class="error-block">
             <span *ngIf="emailValidator.hasError('required')">
               Email field must be required.
             </span>
@@ -30,7 +30,7 @@
         <div class="form-group col-12">
           <label for="passwrod" class="form-label">Password</label>
           <input type="text" class="form-control" formControlName="password">
-          <span *ngIf="!passwordValidator.valid && passwordValidator.touched" class="error-block">
+          <span *ngIf="!passwordValidator.valid && (passwordValidator.touched || saveButton)" class="error-block">
             <span *ngIf="passwordValidator.errors['required']">
               Password must be required.
             </span>
@@ -43,7 +43,7 @@
         <div class="form-group col-12">
           <label for="cpassword" class="form-label">Confirm Password</label>
           <input type="text" class="form-control" formControlName="confirmPassword">
-          <span *ngIf="!confirmPasswordValidator.valid && confirmPasswordValidator.touched" class="error-block">
+          <span *ngIf="!confirmPasswordValidator.valid && (confirmPasswordValidator.touched || saveButton)" class="error-block">
             <span *ngIf="confirmPasswordValidator.hasError('required')">
               This field must be required.
             </span>
@@ -56,7 +56,7 @@
         <div class="form-group col-12">
           <label for="mobile" class="form-label">Mobile</label>
           <input type="text" class="form-control" formControlName="mobile">
-          <span *ngIf="!mobileValidator.valid && mobileValidator.touched" class="error-block">
+          <span *ngIf="!mobileValidator.valid && (mobileValidator.touched || saveButton)" class="error-block">
             <span *ngIf="mobileValidator.errors['required']">
               Mobile number must be required.
             </span>

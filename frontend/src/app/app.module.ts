@@ -15,6 +15,9 @@ import { PropertyDetailComponent } from './property/property-detail/property-det
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { UserRegistrationComponent } from './user/user-registration/user-registration.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserService } from './services/user.service';
+import { AlertifyService } from './services/alertify.service';
+import { AuthService } from './services/auth.service';
 
 
 
@@ -50,7 +53,10 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    HousingService
+    HousingService,
+    UserService,
+    AlertifyService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
