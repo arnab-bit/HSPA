@@ -27,6 +27,8 @@ import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FilterPipe } from './Pipes/filter.pipe';
+import { SortPipe } from './Pipes/sort.pipe';
 
 
 
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
           resolve: {prp: PropertyDetailResolverService}},
   {path: 'user/register', component: UserRegistrationComponent},
   {path: 'user/login', component: UserLoginComponent},
+  {path: '**', component: PageNotFoundComponent},
   {path: '**', component: PageNotFoundComponent},
 
 ]
@@ -54,7 +57,9 @@ const appRoutes: Routes = [
     PropertyDetailComponent,
     PageNotFoundComponent,
     UserRegistrationComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    FilterPipe,
+    SortPipe
    ],
   imports: [
     BrowserModule,
