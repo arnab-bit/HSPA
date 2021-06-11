@@ -15,7 +15,8 @@ export class PropertyListComponent implements OnInit {
   SellRent = 1;
   properties: Array<IPropertyBase> ;
 
-  constructor(private route: ActivatedRoute, private housingService: HousingService) { }
+  constructor(private route: ActivatedRoute,
+              private housingService: HousingService) { }
 
   ngOnInit(): void {
     if(this.route.snapshot.url.toString()){
