@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "housing-service-angular"
+  },
+  "targets": {
+    "housing-service-angular": {
+      "hosting": {
+        "housing-application": [
+          "housing-service-angular"
+        ]
+      }
+    }
+  }
+}
