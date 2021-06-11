@@ -26,6 +26,7 @@ import { UserService } from './services/user.service';
 import { AlertifyService } from './services/alertify.service';
 import { AuthService } from './services/auth.service';
 import { PropertyDetailResolverService } from './property/property-detail/property-detail-resolver.service';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 
 
 
@@ -66,7 +67,8 @@ const appRoutes: Routes = [
     BsDatepickerModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     ButtonsModule.forRoot(),
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    NgxGalleryModule
   ],
   providers: [
     HousingService,
